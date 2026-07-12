@@ -1,0 +1,30 @@
+{
+  "name": "orangehrm-automation",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "npx playwright test --project=chrome",
+    "test:admin": "npx playwright test tests/admin --project=chrome --headed",
+    "test:admin:pay-grades": "npx playwright test tests/admin/pay-grades.spec.js --project=chrome",
+    "test:admin:job-titles": "npx playwright test tests/admin/job-titles.spec.js --project=chrome",
+    "test:leave-management": "npx playwright test tests/leave-management --project=chrome",
+    "test:leave-management:leave-list": "npx playwright test tests/leave-management/leave-list.spec.js --project=chrome",
+    "test:leave-management:assign-leave": "npx playwright test tests/leave-management/assign-leave.spec.js --project=chrome",
+    "test:employee-management": "npx playwright test tests/employee-management --project=chrome",
+    "test:employee-management:search-employee": "npx playwright test tests/employee-management/search-employee.spec.js --project=chrome",
+    "test:time-management": "npx playwright test tests/time-management --project=chrome",
+    "test:time-management:timesheets": "npx playwright test tests/time-management/timesheets.spec.js --project=chrome",
+    "test:auth-setup": "npx playwright test tests/auth-setup.spec.js --project=chrome --headed"
+  },
+  "keywords": [],
+  "author": "Nikhilesh Avvaru",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@playwright/test": "^1.57.0",
+    "@types/node": "^24.3.1"
+  },
+  "dependencies": {
+    "dotenv": "^17.2.3"
+  }
+}
