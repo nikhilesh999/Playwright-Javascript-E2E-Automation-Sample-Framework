@@ -9,19 +9,13 @@ test.describe("Employee Management - Search Employee", () => {
     await expect(page).toHaveURL(/.*\/pim\/viewEmployeeList/)
   })
 
-  test("User is able to see the Employee List page @C025", async ({
-    page,
-    employeeManagementPage,
-  }) => {
+  test("User is able to see the Employee List page @C025", async ({ page, employeeManagementPage }) => {
     await employeeManagementPage.navigateToEmployeeList()
     await expect(page).toHaveURL(/.*\/pim\/viewEmployeeList/)
     await employeeManagementPage.verifyEmployeeListPageTitle()
   })
 
-  test("User is able to see employee records in the table @C026", async ({
-    page,
-    employeeManagementPage,
-  }) => {
+  test("User is able to see employee records in the table @C026", async ({ page, employeeManagementPage}) => {
     await employeeManagementPage.navigateToEmployeeList()
 
     const table = page.locator(".oxd-table")
@@ -32,10 +26,7 @@ test.describe("Employee Management - Search Employee", () => {
     expect(rowCount).toBeGreaterThan(0)
   })
 
-  test("User is able to search an employee by name @C027", async ({
-    page,
-    employeeManagementPage,
-  }) => {
+  test("User is able to search an employee by name @C027", async ({ page, employeeManagementPage }) => {
     await employeeManagementPage.navigateToEmployeeList()
     await employeeManagementPage.searchEmployeeByName(employees.paulHerald.name)
     await employeeManagementPage.clickSearch()
@@ -44,10 +35,7 @@ test.describe("Employee Management - Search Employee", () => {
     await employeeManagementPage.verifyEmployeeListPageTitle()
   })
 
-  test("User is able to reset employee search filters @C028", async ({
-    page,
-    employeeManagementPage,
-  }) => {
+  test("User is able to reset employee search filters @C028", async ({ page, employeeManagementPage }) => {
     await employeeManagementPage.navigateToEmployeeList()
 
     // Search for something first
@@ -61,10 +49,7 @@ test.describe("Employee Management - Search Employee", () => {
     await employeeManagementPage.verifyEmployeeListPageTitle()
   })
 
-  test("User is able to navigate to Add Employee page @C029", async ({
-    page,
-    employeeManagementPage,
-  }) => {
+  test("User is able to navigate to Add Employee page @C029", async ({ page, employeeManagementPage }) => {
     await employeeManagementPage.navigateToEmployeeList()
     await employeeManagementPage.clickAddEmployee()
 
@@ -72,10 +57,7 @@ test.describe("Employee Management - Search Employee", () => {
     await employeeManagementPage.verifyAddEmployeePageTitle()
   })
 
-  test("User is able to see Add Employee form fields @C030", async ({
-    page,
-    employeeManagementPage,
-  }) => {
+  test("User is able to see Add Employee form fields @C030", async ({ page, employeeManagementPage }) => {
     await employeeManagementPage.navigateToAddEmployee()
 
     await expect(employeeManagementPage.firstNameInput).toBeVisible()
@@ -84,10 +66,7 @@ test.describe("Employee Management - Search Employee", () => {
     await employeeManagementPage.verifyEmployeeIdIsVisible()
   })
 
-  test("User is unable to save employee without first name @C031", async ({
-    page,
-    employeeManagementPage,
-  }) => {
+  test("User is unable to save employee without first name @C031", async ({ page, employeeManagementPage }) => {
     await employeeManagementPage.navigateToAddEmployee()
 
     // Enter only last name

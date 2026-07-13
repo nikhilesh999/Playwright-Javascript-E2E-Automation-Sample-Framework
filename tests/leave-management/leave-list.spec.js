@@ -9,28 +9,19 @@ test.describe("Leave Management - Leave List", () => {
     await expect(page).toHaveURL(/.*\/leave\/.*/)
   })
 
-  test("User is able to navigate to Leave List page @C014", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is able to navigate to Leave List page @C014", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToLeaveList()
     await expect(page).toHaveURL(/.*\/leave\/viewLeaveList/)
     await leaveManagementPage.verifyLeaveListPageTitle()
   })
 
-  test("User is able to see the Leave List table @C015", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is able to see the Leave List table @C015", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToLeaveList()
     await expect(page).toHaveURL(/.*\/leave\/viewLeaveList/)
     await leaveManagementPage.verifyLeaveTableIsVisible()
   })
 
-  test("User is able to search leave by leave type @C016", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is able to search leave by leave type @C016", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToLeaveList()
     await leaveManagementPage.selectLeaveType(leaveTypes.canVacation)
     await leaveManagementPage.clickSearch()
@@ -39,10 +30,7 @@ test.describe("Leave Management - Leave List", () => {
     await leaveManagementPage.verifyLeaveTableIsVisible()
   })
 
-  test("User is able to search leave by status @C017", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is able to search leave by status @C017", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToLeaveList()
     await leaveManagementPage.selectLeaveStatus(leaveStatuses.pendingApproval)
     await leaveManagementPage.clickSearch()
@@ -51,10 +39,7 @@ test.describe("Leave Management - Leave List", () => {
     await leaveManagementPage.verifyLeaveTableIsVisible()
   })
 
-  test("User is able to reset leave list filters @C018", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is able to reset leave list filters @C018", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToLeaveList()
 
     // Apply a filter first
@@ -67,10 +52,7 @@ test.describe("Leave Management - Leave List", () => {
     await leaveManagementPage.verifyLeaveTableIsVisible()
   })
 
-  test("User is able to search leave by date range @C019", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is able to search leave by date range @C019", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToLeaveList()
     await leaveManagementPage.enterFromDate("2025-01-01")
     await leaveManagementPage.enterToDate("2025-12-31")

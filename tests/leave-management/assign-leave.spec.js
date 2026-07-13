@@ -9,19 +9,13 @@ test.describe("Leave Management - Assign Leave", () => {
     await expect(page).toHaveURL(/.*\/leave\/.*/)
   })
 
-  test("User is able to navigate to Assign Leave page @C020", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is able to navigate to Assign Leave page @C020", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToAssignLeave()
     await expect(page).toHaveURL(/.*\/leave\/assignLeave/)
     await leaveManagementPage.verifyAssignLeavePageTitle()
   })
 
-  test("User is unable to submit Assign Leave form without required fields @C021", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is unable to submit Assign Leave form without required fields @C021", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToAssignLeave()
     await expect(page).toHaveURL(/.*\/leave\/assignLeave/)
 
@@ -32,10 +26,7 @@ test.describe("Leave Management - Assign Leave", () => {
     await leaveManagementPage.verifyRequiredError()
   })
 
-  test("User is able to see the Assign Leave form fields @C022", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is able to see the Assign Leave form fields @C022", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToAssignLeave()
     await expect(page).toHaveURL(/.*\/leave\/assignLeave/)
 
@@ -47,10 +38,7 @@ test.describe("Leave Management - Assign Leave", () => {
     await expect(leaveManagementPage.assignButton).toBeVisible()
   })
 
-  test("User is able to select a leave type from dropdown @C023", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is able to select a leave type from dropdown @C023", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToAssignLeave()
     await leaveManagementPage.selectAssignLeaveType(leaveTypes.canVacation)
 
@@ -59,10 +47,7 @@ test.describe("Leave Management - Assign Leave", () => {
     await expect(dropdown).toContainText(leaveTypes.canVacation)
   })
 
-  test("User is able to see comment field on Assign Leave form @C024", async ({
-    page,
-    leaveManagementPage,
-  }) => {
+  test("User is able to see comment field on Assign Leave form @C024", async ({ page, leaveManagementPage }) => {
     await leaveManagementPage.navigateToAssignLeave()
     await expect(leaveManagementPage.assignCommentTextarea).toBeVisible()
   })

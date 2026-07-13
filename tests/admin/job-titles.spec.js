@@ -9,19 +9,13 @@ test.describe("Admin - Job Titles", () => {
     await expect(page).toHaveURL(/.*\/admin\/viewSystemUsers/)
   })
 
-  test("User is able to navigate to Job Titles page @C007", async ({
-    page,
-    jobTitlesPage,
-  }) => {
+  test("User is able to navigate to Job Titles page @C007", async ({ page,jobTitlesPage }) => {
     await jobTitlesPage.navigateToJobTitles()
     await expect(page).toHaveURL(/.*\/admin\/viewJobTitleList/)
     await jobTitlesPage.verifyJobTitlePageTitle()
   })
 
-  test("User is able to see Add Job Title form @C008", async ({
-    page,
-    jobTitlesPage,
-  }) => {
+  test("User is able to see Add Job Title form @C008", async ({ page, jobTitlesPage }) => {
     await jobTitlesPage.navigateToJobTitles()
     await jobTitlesPage.clickAddJobTitle()
 
@@ -31,10 +25,7 @@ test.describe("Admin - Job Titles", () => {
     await jobTitlesPage.verifyJobDescriptionInputIsVisible()
   })
 
-  test("User is unable to save Job Title with empty title @C009", async ({
-    page,
-    jobTitlesPage,
-  }) => {
+  test("User is unable to save Job Title with empty title @C009", async ({ page, jobTitlesPage }) => {
     await jobTitlesPage.navigateToJobTitles()
     await jobTitlesPage.clickAddJobTitle()
 
@@ -47,10 +38,7 @@ test.describe("Admin - Job Titles", () => {
     await jobTitlesPage.verifyRequiredError()
   })
 
-  test("User is able to cancel adding a Job Title @C012", async ({
-    page,
-    jobTitlesPage,
-  }) => {
+  test("User is able to cancel adding a Job Title @C012", async ({ page, jobTitlesPage }) => {
     await jobTitlesPage.navigateToJobTitles()
     await jobTitlesPage.clickAddJobTitle()
 
@@ -66,10 +54,7 @@ test.describe("Admin - Job Titles", () => {
     await jobTitlesPage.verifyJobTitlePageTitle()
   })
 
-  test("User is able to view existing Job Titles in table @C013", async ({
-    page,
-    jobTitlesPage,
-  }) => {
+  test("User is able to view existing Job Titles in table @C013", async ({ page, jobTitlesPage }) => {
     await jobTitlesPage.navigateToJobTitles()
     await expect(page).toHaveURL(/.*\/admin\/viewJobTitleList/)
 

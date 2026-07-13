@@ -9,19 +9,13 @@ test.describe("Admin - Pay Grades", () => {
     await expect(page).toHaveURL(/.*\/admin\/viewSystemUsers/)
   })
 
-  test("User is able to navigate to Pay Grades page @C001", async ({
-    page,
-    payGradesPage,
-  }) => {
+  test("User is able to navigate to Pay Grades page @C001", async ({ page, payGradesPage }) => {
     await payGradesPage.navigateToPayGrades()
     await expect(page).toHaveURL(/.*\/admin\/viewPayGrades/)
     await payGradesPage.verifyPayGradePageTitle()
   })
 
-  test("User is able to see Add Pay Grade form @C002", async ({
-    page,
-    payGradesPage,
-  }) => {
+  test("User is able to see Add Pay Grade form @C002", async ({ page, payGradesPage }) => {
     await payGradesPage.navigateToPayGrades()
     await payGradesPage.clickAddPayGrade()
 
@@ -31,10 +25,7 @@ test.describe("Admin - Pay Grades", () => {
     await payGradesPage.verifyPayGradeNameInput()
   })
 
-  test("User is unable to save Pay Grade with empty name @C003", async ({
-    page,
-    payGradesPage,
-  }) => {
+  test("User is unable to save Pay Grade with empty name @C003", async ({ page, payGradesPage }) => {
     await payGradesPage.navigateToPayGrades()
     await payGradesPage.clickAddPayGrade()
 
@@ -45,10 +36,7 @@ test.describe("Admin - Pay Grades", () => {
     await payGradesPage.verifyRequiredError()
   })
 
-  test("User is able to cancel adding a Pay Grade @C005", async ({
-    page,
-    payGradesPage,
-  }) => {
+  test("User is able to cancel adding a Pay Grade @C005", async ({ page, payGradesPage }) => {
     await payGradesPage.navigateToPayGrades()
     await payGradesPage.clickAddPayGrade()
 
@@ -64,10 +52,7 @@ test.describe("Admin - Pay Grades", () => {
     await payGradesPage.verifyPayGradePageTitle()
   })
 
-  test("User is able to view existing Pay Grades in table @C006", async ({
-    page,
-    payGradesPage,
-  }) => {
+  test("User is able to view existing Pay Grades in table @C006", async ({ page, payGradesPage }) => {
     await payGradesPage.navigateToPayGrades()
     await expect(page).toHaveURL(/.*\/admin\/viewPayGrades/)
 
